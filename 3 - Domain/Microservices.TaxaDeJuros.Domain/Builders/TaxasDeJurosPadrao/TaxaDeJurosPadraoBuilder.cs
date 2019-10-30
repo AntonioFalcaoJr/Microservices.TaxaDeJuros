@@ -1,4 +1,6 @@
-﻿namespace Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosPadrao
+﻿using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
+
+namespace Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosPadrao
 {
     public class TaxaDeJurosPadraoBuilder : ITaxaDeJurosPadraoBuilder<TaxaDeJurosPadrao>
     {

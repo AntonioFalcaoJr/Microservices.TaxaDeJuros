@@ -9,7 +9,7 @@
 
         private double Valor { get; set; }
 
-        public double GetValor() => Valor;
+        public double Get() => Valor;
 
         private void SetValor(double valor) => Valor = valor;
     }

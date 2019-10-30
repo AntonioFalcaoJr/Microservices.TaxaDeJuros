@@ -1,13 +1,13 @@
-﻿using Microservices.TaxasDeJuros.Domain;
-using Microservices.TaxasDeJuros.Domain.Factories;
+﻿using Microservices.TaxasDeJuros.Domain.Factories;
+using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
 
 namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao
 {
     public class TaxaDeJurosPadraoServices : ITaxaDeJurosPadraoServices
     {
-        private readonly ITaxaDeJurosPadraoFactory<ITaxaDeJuros> _taxaDeJurosPadraoFactory;
+        private readonly ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao> _taxaDeJurosPadraoFactory;
 
-        public TaxaDeJurosPadraoServices(ITaxaDeJurosPadraoFactory<ITaxaDeJuros> taxaDeJurosPadraoFactory)
+        public TaxaDeJurosPadraoServices(ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao> taxaDeJurosPadraoFactory)
         {
             _taxaDeJurosPadraoFactory = taxaDeJurosPadraoFactory;
         }
@@ -15,7 +15,7 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao
         public double GetValor()
         {
             var taxaDeJuros = _taxaDeJurosPadraoFactory.Create();
-            return taxaDeJuros?.GetValor() ?? 0;
+            return taxaDeJuros?.Get() ?? 0;
         }
     }
 }
