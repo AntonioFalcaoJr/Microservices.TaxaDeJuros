@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxaDeJuros.Domain", "3 - Domain\Microservices.TaxaDeJuros.Domain\Microservices.TaxaDeJuros.Domain.csproj", "{E4C79558-7D99-4F8A-A39C-FC4E22D6E916}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Domain", "3 - Domain\Microservices.TaxaDeJuros.Domain\Microservices.TaxasDeJuros.Domain.csproj", "{E4C79558-7D99-4F8A-A39C-FC4E22D6E916}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Domain", "3 - Domain", "{5D8C3FBC-BF26-46F6-8FF0-98A30A4F69A3}"
 EndProject
@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Services", "2 - Service
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - Presentation", "1 - Presentation", "{01058935-7ECA-41A0-B2A7-65F24B1069BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxaDeJuros.Services", "2 - Services\Microservices.TaxaDeJuros.Services\Microservices.TaxaDeJuros.Services.csproj", "{04C6E9EC-C649-48ED-866E-F51F54893E87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Services", "2 - Services\Microservices.TaxaDeJuros.Services\Microservices.TaxasDeJuros.Services.csproj", "{04C6E9EC-C649-48ED-866E-F51F54893E87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxaDeJuros.Api", "1 - Presentation\Microservices.TaxaDeJuros.Api\Microservices.TaxaDeJuros.Api.csproj", "{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Api", "1 - Presentation\Microservices.TaxaDeJuros.Api\Microservices.TaxasDeJuros.Api.csproj", "{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

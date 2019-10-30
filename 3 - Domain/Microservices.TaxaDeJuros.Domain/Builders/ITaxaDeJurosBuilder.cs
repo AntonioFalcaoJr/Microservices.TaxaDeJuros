@@ -1,10 +1,7 @@
-﻿using Microservices.TaxaDeJuros.Domain.Taxas;
-
-namespace Microservices.TaxaDeJuros.Domain.Builders
+﻿namespace Microservices.TaxasDeJuros.Domain.Builders
 {
-    public interface ITaxaDeJurosBuilder
+    public interface ITaxaDeJurosBuilder<out T> : IBuilder<T>
     {
-        Taxa Build();
-        ITaxaDeJurosBuilder WithValor(double valor);
+        ITaxaDeJurosBuilder<T> WithValor(double valor);
     }
 }

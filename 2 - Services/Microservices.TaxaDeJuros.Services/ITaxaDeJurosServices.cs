@@ -1,4 +1,4 @@
-﻿namespace Microservices.TaxaDeJuros.Services
+﻿namespace Microservices.TaxasDeJuros.Services
 {
     public interface ITaxaDeJurosServices
     {
