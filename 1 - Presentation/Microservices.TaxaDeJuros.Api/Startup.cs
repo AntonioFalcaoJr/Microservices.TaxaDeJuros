@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace Microservices.TaxasDeJuros.Api
 {
@@ -22,6 +23,13 @@ namespace Microservices.TaxasDeJuros.Api
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Taxa de Juros - Web API - v1");
+            });
 
             app.UseMvc()
                 .UseApiVersioning();
@@ -41,6 +49,15 @@ namespace Microservices.TaxasDeJuros.Api
                 s.DefaultApiVersion = new ApiVersion(1, 0);
                 s.ReportApiVersions = true;
                 s.AssumeDefaultVersionWhenUnspecified = true;
+            });
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Taxa de Juros - Web API",
+                    Version = "v1"
+                });
             });
 
             IocServices.Register(services);
