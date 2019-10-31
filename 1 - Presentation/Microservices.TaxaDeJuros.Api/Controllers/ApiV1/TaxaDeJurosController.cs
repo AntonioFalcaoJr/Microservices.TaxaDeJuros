@@ -1,8 +1,7 @@
-﻿using Microservices.TaxasDeJuros.Api.Controllers.ApiV1.Base;
+﻿using CalculadoraDeJuros.Dto;
+using Microservices.TaxasDeJuros.Api.Controllers.ApiV1.Base;
 using Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Threading;
 
 namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
 {
@@ -17,16 +16,9 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
         }
 
         [HttpGet]
-        public double Get(CancellationToken cancellationToken)
-        {
-            try
-            {
-                return _taxaDeJurosPadraoServices.GetValor();
-            }
-            catch (Exception ex)
-            {
-                return 0;
-            }
-        }
+        public IActionResult GetAsync([FromQuery]TaxaDeJurosDto dto) =>
+            dto is null
+                ? (IActionResult)BadRequest("deu ruim negão")
+                : Ok(_taxaDeJurosPadraoServices.GetValor());
     }
 }
