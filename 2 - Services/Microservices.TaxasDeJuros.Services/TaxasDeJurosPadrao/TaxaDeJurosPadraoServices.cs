@@ -1,4 +1,5 @@
-﻿using Microservices.TaxasDeJuros.Domain.Factories;
+﻿using CalculadoraDeJuros.Contratos.Dto;
+using Microservices.TaxasDeJuros.Domain.Factories;
 using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,7 +15,13 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao
             _taxaDeJurosPadraoFactory = taxaDeJurosPadraoFactory;
         }
 
-        public Task<decimal> GetValorAsync(CancellationToken cancellationToken) =>
+        public Task<decimal> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken)
+        {
+            if (taxaDeJurosDto.TaxaDeJuros is null || taxaDeJurosDto.TaxaDeJuros is TaxaDeJurosPadrao)
+                return GetValorDaTaxaDeJurosPadraoAsync(cancellationToken);
+        }
+
+        private Task<decimal> GetValorDaTaxaDeJurosPadraoAsync(CancellationToken cancellationToken) =>
             Task.Run(() =>
             {
                 var taxaDeJuros = _taxaDeJurosPadraoFactory.Create();

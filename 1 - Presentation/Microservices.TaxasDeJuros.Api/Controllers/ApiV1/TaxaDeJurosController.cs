@@ -1,4 +1,4 @@
-﻿using CalculadoraDeJuros.Dto;
+﻿using CalculadoraDeJuros.Contratos.Dto;
 using Microservices.TaxasDeJuros.Api.Controllers.ApiV1.Base;
 using Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +23,7 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
             if (taxaDeJurosDto is null)
                 return BadRequest("Não foi possível identificar a Taxa de Juros desejada.");
 
-            return Ok(await _taxaDeJurosPadraoServices.GetValorAsync(cancellationToken));
+            return Ok(await _taxaDeJurosPadraoServices.GetValorAsync(taxaDeJurosDto, cancellationToken));
         }
     }
 }

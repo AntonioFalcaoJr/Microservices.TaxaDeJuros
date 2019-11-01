@@ -1,4 +1,6 @@
-﻿namespace Microservices.TaxasDeJuros.Domain
+﻿using CalculadoraDeJuros.Contratos.Domain;
+
+namespace Microservices.TaxasDeJuros.Domain
 {
     public abstract class TaxaDeJuros : ITaxaDeJuros
     {

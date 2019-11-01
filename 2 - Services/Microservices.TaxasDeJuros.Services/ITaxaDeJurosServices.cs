@@ -1,10 +1,11 @@
-﻿using System.Threading;
+﻿using CalculadoraDeJuros.Contratos.Dto;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Microservices.TaxasDeJuros.Services
 {
     public interface ITaxaDeJurosServices
     {
-        Task<decimal> GetValorAsync(CancellationToken cancellationToken);
+        Task<decimal> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken);
     }
 }
