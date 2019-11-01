@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\2 - Services\Microservices.TaxaDeJuros.Services\Microservices.TaxasDeJuros.Services.csproj" />
+    <ProjectReference Include="..\..\2 - Services\Microservices.TaxasDeJuros.Services\Microservices.TaxasDeJuros.Services.csproj" />
   </ItemGroup>
 
 </Project>
