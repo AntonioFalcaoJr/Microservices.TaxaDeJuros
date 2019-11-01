@@ -1,5 +1,7 @@
 ﻿using Microservices.TaxasDeJuros.Domain.Factories;
 using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao
 {
@@ -12,10 +14,11 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao
             _taxaDeJurosPadraoFactory = taxaDeJurosPadraoFactory;
         }
 
-        public double GetValor()
-        {
-            var taxaDeJuros = _taxaDeJurosPadraoFactory.Create();
-            return taxaDeJuros?.Get() ?? 0;
-        }
+        public Task<decimal> GetValorAsync(CancellationToken cancellationToken) =>
+            Task.Run(() =>
+            {
+                var taxaDeJuros = _taxaDeJurosPadraoFactory.Create();
+                return taxaDeJuros?.Get() ?? 0;
+            }, cancellationToken);
     }
 }

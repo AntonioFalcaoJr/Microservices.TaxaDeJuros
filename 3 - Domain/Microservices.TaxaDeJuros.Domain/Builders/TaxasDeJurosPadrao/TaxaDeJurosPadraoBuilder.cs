@@ -2,13 +2,13 @@
 
 namespace Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosPadrao
 {
-    public class TaxaDeJurosPadraoBuilder : ITaxaDeJurosPadraoBuilder<TaxaDeJurosPadrao>
+    public class TaxaDeJurosPadraoBuilder : ITaxaDeJurosPadraoBuilder<ITaxaDeJurosPadrao>
     {
-        private double _valor;
+        private decimal _valor;
 
-        public TaxaDeJurosPadrao Build() => new TaxaDeJurosPadrao(_valor);
+        public ITaxaDeJurosPadrao Build() => new TaxaDeJurosPadrao(_valor);
 
-        public ITaxaDeJurosBuilder<TaxaDeJurosPadrao> WithValor(double valor)
+        public ITaxaDeJurosBuilder<ITaxaDeJurosPadrao> WithValor(decimal valor)
         {
             _valor = valor;
             return this;

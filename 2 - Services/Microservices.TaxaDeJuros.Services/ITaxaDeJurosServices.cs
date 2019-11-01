@@ -1,7 +1,10 @@
-﻿namespace Microservices.TaxasDeJuros.Services
+﻿using System.Threading;
+using System.Threading.Tasks;
+
+namespace Microservices.TaxasDeJuros.Services
 {
     public interface ITaxaDeJurosServices
     {
-        double GetValor();
+        Task<decimal> GetValorAsync(CancellationToken cancellationToken);
     }
 }

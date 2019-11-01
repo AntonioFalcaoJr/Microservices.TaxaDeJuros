@@ -2,15 +2,15 @@
 {
     public abstract class TaxaDeJuros : ITaxaDeJuros
     {
-        protected TaxaDeJuros(double valor)
+        protected TaxaDeJuros(decimal valor)
         {
             SetValor(valor);
         }
 
-        private double Valor { get; set; }
+        private decimal Valor { get; set; }
 
-        public double Get() => Valor;
+        public decimal Get() => Valor;
 
-        private void SetValor(double valor) => Valor = valor;
+        private void SetValor(decimal valor) => Valor = valor;
     }
 }

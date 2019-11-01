@@ -5,7 +5,7 @@ namespace Microservices.TaxasDeJuros.Domain.Factories
 {
     public class TaxaDeJurosPadraoFactory : ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao>
     {
-        private const double Valor = 1.0;
+        private const decimal Valor = 0.01M;
         private readonly ITaxaDeJurosPadraoBuilder<ITaxaDeJurosPadrao> _taxaDeJurosPadraoBuilder;
 
         public TaxaDeJurosPadraoFactory(ITaxaDeJurosPadraoBuilder<ITaxaDeJurosPadrao> taxaDeJurosPadraoBuilder)

@@ -2,7 +2,7 @@
 {
     public class TaxaDeJurosPadrao : TaxaDeJuros, ITaxaDeJurosPadrao
     {
-        public TaxaDeJurosPadrao(double valor) : base(valor)
+        public TaxaDeJurosPadrao(decimal valor) : base(valor)
         {
         }
     }

@@ -2,6 +2,6 @@
 {
     public interface ITaxaDeJurosBuilder<out T> : IBuilder<T>
     {
-        ITaxaDeJurosBuilder<T> WithValor(double valor);
+        ITaxaDeJurosBuilder<T> WithValor(decimal valor);
     }
 }

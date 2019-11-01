@@ -2,6 +2,6 @@
 {
     public interface ITaxaDeJuros
     {
-        double Get();
+        decimal Get();
     }
 }
