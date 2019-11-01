@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
 {
-    [Route("v{version:apiVersion}/taxaDeJuros")]
+    [Route("v{version:apiVersion}/taxaJuros")]
     public class TaxaDeJurosController : ApiV1BaseController
     {
         private readonly ITaxaDeJurosPadraoServices _taxaDeJurosPadraoServices;
@@ -16,9 +16,12 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
         }
 
         [HttpGet]
-        public IActionResult GetAsync([FromQuery]TaxaDeJurosDto dto) =>
-            dto is null
-                ? (IActionResult)BadRequest("deu ruim negão")
-                : Ok(_taxaDeJurosPadraoServices.GetValor());
+        public IActionResult GetAsync([FromQuery] TaxaDeJurosDto dto)
+        {
+            if (dto is null)
+                return BadRequest("Não foi possível identificar a Taxa de Juros desejada.");
+
+            return Ok(_taxaDeJurosPadraoServices.GetValor());
+        }
     }
 }
