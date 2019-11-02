@@ -1,7 +1,8 @@
 ﻿using CalculadoraDeJuros.Contratos.Dto;
 using Microservices.TaxasDeJuros.Api.Controllers.ApiV1.Base;
-using Microservices.TaxasDeJuros.Services.TaxasDeJurosPadrao;
+using Microservices.TaxasDeJuros.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,11 +11,11 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
     [Route("v{version:apiVersion}/taxaJuros")]
     public class TaxaDeJurosController : ApiV1BaseController
     {
-        private readonly ITaxaDeJurosPadraoServices _taxaDeJurosPadraoServices;
+        private readonly ITaxaDeJurosServices _taxaDeJurosServices;
 
-        public TaxaDeJurosController(ITaxaDeJurosPadraoServices taxaDeJurosPadraoServices)
+        public TaxaDeJurosController(ITaxaDeJurosServices taxaDeJurosServices)
         {
-            _taxaDeJurosPadraoServices = taxaDeJurosPadraoServices;
+            _taxaDeJurosServices = taxaDeJurosServices;
         }
 
         [HttpGet]
@@ -23,7 +24,14 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
             if (taxaDeJurosDto is null)
                 return BadRequest("Não foi possível identificar a Taxa de Juros desejada.");
 
-            return Ok(await _taxaDeJurosPadraoServices.GetValorAsync(taxaDeJurosDto, cancellationToken));
+            try
+            {
+                return Ok(await _taxaDeJurosServices.GetValorAsync(taxaDeJurosDto, cancellationToken));
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Não foi possível processar a solicitação. Messagem do erro: " + e.Message);
+            }
         }
     }
 }
