@@ -1,9 +1,9 @@
-﻿using CalculadoraDeJuros.Contratos.Dto;
-using Microservices.TaxasDeJuros.Domain.Factories;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosEspecial;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
+﻿using CalculadoraDeJuros.Contratos.Domain;
+using CalculadoraDeJuros.Contratos.Dto;
+using Microservices.TaxasDeJuros.Domain;
+using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial;
 
-namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
+namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
 {
     internal class TaxaDeJurosEspecialLink : TaxaDeJurosLink
     {

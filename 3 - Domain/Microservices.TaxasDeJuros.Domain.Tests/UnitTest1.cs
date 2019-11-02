@@ -1,6 +1,6 @@
+using CalculadoraDeJuros.Contratos.Domain;
 using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosPadrao;
-using Microservices.TaxasDeJuros.Domain.Factories;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
+using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosPadrao;
 using Moq;
 using Xunit;
 

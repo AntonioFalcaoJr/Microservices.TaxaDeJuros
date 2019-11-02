@@ -2,7 +2,7 @@
 using CalculadoraDeJuros.Contratos.Dto;
 using Microservices.TaxasDeJuros.Domain.Factories;
 
-namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
+namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
 {
     internal abstract class TaxaDeJurosLink : ITaxaDeJurosLink
     {
@@ -12,7 +12,7 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
         }
 
         public ITaxaDeJurosLink ProximoLink { get; set; }
-        protected IFactory<ITaxaDeJuros> Factory { get; set; }
+        protected IFactory<ITaxaDeJuros> Factory { get; }
 
         public abstract decimal GetValor(TaxaDeJurosDto taxaDeJurosDto);
 

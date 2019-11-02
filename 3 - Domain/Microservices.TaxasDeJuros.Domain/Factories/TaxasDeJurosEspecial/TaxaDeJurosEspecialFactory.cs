@@ -1,7 +1,7 @@
-﻿using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosEspecial;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosEspecial;
+﻿using CalculadoraDeJuros.Contratos.Domain;
+using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosEspecial;
 
-namespace Microservices.TaxasDeJuros.Domain.Factories
+namespace Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial
 {
     public class TaxaDeJurosEspecialFactory : ITaxaDeJurosEspecialFactory<ITaxaDeJurosEspecial>
     {

@@ -1,8 +1,8 @@
-﻿using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosEspecial;
+﻿using CalculadoraDeJuros.Contratos.Domain;
+using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosEspecial;
 using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosPadrao;
-using Microservices.TaxasDeJuros.Domain.Factories;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosEspecial;
-using Microservices.TaxasDeJuros.Domain.TaxasDeJurosPadrao;
+using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial;
+using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosPadrao;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservices.TaxasDeJuros.Domain.Ioc

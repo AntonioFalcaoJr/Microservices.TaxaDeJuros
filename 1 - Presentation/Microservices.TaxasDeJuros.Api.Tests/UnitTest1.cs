@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace Microservices.TaxasDeJuros.Api.Tests
@@ -8,7 +7,6 @@ namespace Microservices.TaxasDeJuros.Api.Tests
         [Fact]
         public void Test1()
         {
-
         }
     }
 }

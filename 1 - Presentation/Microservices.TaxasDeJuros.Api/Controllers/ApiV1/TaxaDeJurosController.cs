@@ -30,7 +30,7 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1
             }
             catch (Exception e)
             {
-                return BadRequest("Não foi possível processar a solicitação. Messagem do erro: " + e.Message);
+                return BadRequest("Não foi possível processar a solicitação. Menssagem do erro: " + e.Message);
             }
         }
     }

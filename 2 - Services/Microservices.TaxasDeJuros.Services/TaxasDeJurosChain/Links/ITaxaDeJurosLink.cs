@@ -1,6 +1,6 @@
 ﻿using CalculadoraDeJuros.Contratos.Dto;
 
-namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
+namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
 {
     internal interface ITaxaDeJurosLink
     {

@@ -1,4 +1,6 @@
-﻿namespace Microservices.TaxasDeJuros.Domain.TaxasDeJurosEspecial
+﻿using CalculadoraDeJuros.Contratos.Domain;
+
+namespace Microservices.TaxasDeJuros.Domain
 {
     public class TaxaDeJurosEspecial : TaxaDeJuros, ITaxaDeJurosEspecial
     {
