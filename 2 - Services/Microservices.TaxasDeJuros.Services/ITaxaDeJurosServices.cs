@@ -6,6 +6,8 @@ namespace Microservices.TaxasDeJuros.Services
 {
     public interface ITaxaDeJurosServices
     {
-        Task<decimal> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken);
+        decimal GetValor();
+
+        Task<TaxaDeJurosDto> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken);
     }
 }

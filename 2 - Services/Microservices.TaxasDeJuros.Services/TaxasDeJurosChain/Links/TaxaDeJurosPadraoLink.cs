@@ -2,7 +2,6 @@
 using CalculadoraDeJuros.Contratos.Dto;
 using Microservices.TaxasDeJuros.Domain;
 using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosPadrao;
-using System;
 
 namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
 {
@@ -13,12 +12,6 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
         {
         }
 
-        public override decimal GetValor(TaxaDeJurosDto taxaDeJurosDto)
-        {
-            return taxaDeJurosDto?.TaxaDeJuros is TaxaDeJurosPadrao
-                ? Factory.Create().Get()
-                : ProximoLink?.GetValor(taxaDeJurosDto) ??
-                  throw new Exception("O Tipo de Taxa de Juros deve ser informado.");
-        }
+        protected override bool MatchType(TaxaDeJurosDto taxaDeJurosDto) => taxaDeJurosDto?.TaxaDeJuros is TaxaDeJurosPadrao;
     }
 }

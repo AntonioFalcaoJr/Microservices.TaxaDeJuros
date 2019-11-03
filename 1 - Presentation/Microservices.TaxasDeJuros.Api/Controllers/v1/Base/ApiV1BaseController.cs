@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace Microservices.TaxasDeJuros.Api.Controllers.ApiV1.Base
+namespace Microservices.TaxasDeJuros.Api.Controllers.v1.Base
 {
     [ApiController]
     [ApiVersion("1")]

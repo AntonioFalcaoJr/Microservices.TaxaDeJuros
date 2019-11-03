@@ -14,7 +14,9 @@ namespace Microservices.TaxasDeJuros.Services
             _taxaDeJurosChain = taxaDeJurosChain;
         }
 
-        public Task<decimal> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken) =>
+        public decimal GetValor() => _taxaDeJurosChain.Get();
+
+        public Task<TaxaDeJurosDto> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken) =>
             Task.Run(() => _taxaDeJurosChain.Get(taxaDeJurosDto), cancellationToken);
     }
 }

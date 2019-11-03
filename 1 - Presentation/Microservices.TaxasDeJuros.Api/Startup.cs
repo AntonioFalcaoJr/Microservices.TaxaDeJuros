@@ -1,12 +1,17 @@
-﻿using Microservices.TaxasDeJuros.Domain.Ioc;
+﻿using Microservices.TaxasDeJuros.Api.Controllers.Swagger;
+using Microservices.TaxasDeJuros.Api.Controllers.v1;
+using Microservices.TaxasDeJuros.Api.Controllers.v2;
+using Microservices.TaxasDeJuros.Domain.Ioc;
 using Microservices.TaxasDeJuros.Services.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Options;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace Microservices.TaxasDeJuros.Api
 {
@@ -19,20 +24,31 @@ namespace Microservices.TaxasDeJuros.Api
             _config = configuration;
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
         {
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
             app.UseSwagger();
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Taxa de Juros - Web API - v1");
-            });
+            app.UseSwaggerUI(
+                options =>
+                {
+                    foreach (var description in provider.ApiVersionDescriptions)
+                    {
+                        options.SwaggerEndpoint(
+                            $"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());
+                    }
+                });
 
             app.UseMvc()
                 .UseApiVersioning();
+
+            app.UseRouting();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+            });
         }
 
         public void ConfigureServices(IServiceCollection services)
@@ -45,16 +61,15 @@ namespace Microservices.TaxasDeJuros.Api
                 s.DefaultApiVersion = new ApiVersion(1, 0);
                 s.ReportApiVersions = true;
                 s.AssumeDefaultVersionWhenUnspecified = true;
+
+                s.Conventions.Controller<TaxaDeJurosV1Controller>().HasApiVersion(new ApiVersion(1, 0));
+                s.Conventions.Controller<TaxaDeJurosV2Controller>().HasApiVersion(new ApiVersion(2, 0));
             });
 
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo
-                {
-                    Title = "Taxa de Juros - Web API",
-                    Version = "v1"
-                });
-            });
+            services.AddVersionedApiExplorer(options => options.GroupNameFormat = "'v'VVV");
+
+            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+            services.AddSwaggerGen();
 
             IocServices.Register(services);
             IocDomain.Register(services);

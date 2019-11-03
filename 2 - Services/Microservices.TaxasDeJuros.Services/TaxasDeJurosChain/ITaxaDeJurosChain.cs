@@ -4,6 +4,8 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
 {
     public interface ITaxaDeJurosChain
     {
-        decimal Get(TaxaDeJurosDto taxaDeJurosDto);
+        TaxaDeJurosDto Get(TaxaDeJurosDto taxaDeJurosDto);
+
+        decimal Get();
     }
 }

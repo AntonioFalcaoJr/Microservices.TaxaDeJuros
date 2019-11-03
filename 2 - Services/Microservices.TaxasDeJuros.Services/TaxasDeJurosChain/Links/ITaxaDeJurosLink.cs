@@ -6,7 +6,9 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
     {
         ITaxaDeJurosLink ProximoLink { get; set; }
 
-        decimal GetValor(TaxaDeJurosDto taxaDeJurosDto);
+        TaxaDeJurosDto GetValor(TaxaDeJurosDto taxaDeJurosDto);
+
+        decimal GetValor();
 
         void SetProximoLink(ITaxaDeJurosLink taxaDeJurosLink);
     }

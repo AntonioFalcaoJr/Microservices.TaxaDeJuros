@@ -9,16 +9,19 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
     public class TaxaDeJurosChain : ITaxaDeJurosChain
     {
         private readonly TaxaDeJurosEspecialLink _taxaDeJurosEspecialLink;
+        private readonly TaxaDeJurosPadraoLink _taxaDeJurosPadraoLink;
 
         public TaxaDeJurosChain(ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao> taxaDeJurosPadraoFactory,
             ITaxaDeJurosEspecialFactory<ITaxaDeJurosEspecial> taxaDeJurosEspecialFactory)
         {
             _taxaDeJurosEspecialLink = new TaxaDeJurosEspecialLink(taxaDeJurosEspecialFactory);
-            var taxaDeJurosPadraoLink = new TaxaDeJurosPadraoLink(taxaDeJurosPadraoFactory);
+            _taxaDeJurosPadraoLink = new TaxaDeJurosPadraoLink(taxaDeJurosPadraoFactory);
 
-            _taxaDeJurosEspecialLink.SetProximoLink(taxaDeJurosPadraoLink);
+            _taxaDeJurosEspecialLink.SetProximoLink(_taxaDeJurosPadraoLink);
         }
 
-        public decimal Get(TaxaDeJurosDto taxaDeJurosDto) => _taxaDeJurosEspecialLink.GetValor(taxaDeJurosDto);
+        public TaxaDeJurosDto Get(TaxaDeJurosDto taxaDeJurosDto) => _taxaDeJurosEspecialLink.GetValor(taxaDeJurosDto);
+
+        public decimal Get() => _taxaDeJurosPadraoLink.GetValor();
     }
 }

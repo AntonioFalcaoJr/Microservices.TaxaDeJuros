@@ -12,11 +12,6 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
         {
         }
 
-        public override decimal GetValor(TaxaDeJurosDto taxaDeJurosDto)
-        {
-            return taxaDeJurosDto?.TaxaDeJuros is TaxaDeJurosPadrao
-                ? Factory.Create().Get()
-                : ProximoLink.GetValor(taxaDeJurosDto);
-        }
+        protected override bool MatchType(TaxaDeJurosDto taxaDeJurosDto) => taxaDeJurosDto?.TaxaDeJuros is TaxaDeJurosEspecial;
     }
 }

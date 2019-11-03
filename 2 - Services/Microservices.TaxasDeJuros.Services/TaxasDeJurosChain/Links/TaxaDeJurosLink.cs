@@ -12,10 +12,31 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
         }
 
         public ITaxaDeJurosLink ProximoLink { get; set; }
-        protected IFactory<ITaxaDeJuros> Factory { get; }
+        private IFactory<ITaxaDeJuros> Factory { get; }
 
-        public abstract decimal GetValor(TaxaDeJurosDto taxaDeJurosDto);
+        public TaxaDeJurosDto GetValor(TaxaDeJurosDto taxaDeJurosDto)
+        {
+            var dto = new TaxaDeJurosDto();
+
+            if (MatchType(taxaDeJurosDto))
+            {
+                dto.Valor = Factory.Create().Get();
+                return dto;
+            }
+
+            if (ProximoLink is null)
+            {
+                dto.AddError("O tipo de Taxa de Juros deve ser informado.");
+                return dto;
+            }
+
+            return ProximoLink.GetValor(taxaDeJurosDto);
+        }
+
+        public decimal GetValor() => Factory.Create().Get();
 
         public void SetProximoLink(ITaxaDeJurosLink taxaDeJurosLink) => ProximoLink = taxaDeJurosLink;
+
+        protected abstract bool MatchType(TaxaDeJurosDto taxaDeJurosDto);
     }
 }
