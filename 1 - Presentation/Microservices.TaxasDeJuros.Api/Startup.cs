@@ -1,12 +1,16 @@
 ﻿using Microservices.TaxasDeJuros.Api.Controllers.Swagger;
 using Microservices.TaxasDeJuros.Api.Controllers.v1;
 using Microservices.TaxasDeJuros.Api.Controllers.v2;
+using Microservices.TaxasDeJuros.Data;
+using Microservices.TaxasDeJuros.Data.Ioc;
+using Microservices.TaxasDeJuros.Data.Seed;
 using Microservices.TaxasDeJuros.Domain.Ioc;
 using Microservices.TaxasDeJuros.Services.Ioc;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -49,10 +53,14 @@ namespace Microservices.TaxasDeJuros.Api
             {
                 endpoints.MapControllers();
             });
+
+            AdicionarDadosTeste(app);
         }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<TaxasDeJurosContext>(opt => opt.UseInMemoryDatabase("TaxaDejuros"));
+
             services.AddMvc(m => { m.EnableEndpointRouting = false; })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
 
@@ -73,6 +81,15 @@ namespace Microservices.TaxasDeJuros.Api
 
             IocServices.Register(services);
             IocDomain.Register(services);
+            IocData.Register(services);
+        }
+
+        private static void AdicionarDadosTeste(IApplicationBuilder app)
+        {
+            using var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope();
+            var seed = serviceScope.ServiceProvider.GetService<IEntitySeed>();
+
+            seed.Execute();
         }
     }
 }

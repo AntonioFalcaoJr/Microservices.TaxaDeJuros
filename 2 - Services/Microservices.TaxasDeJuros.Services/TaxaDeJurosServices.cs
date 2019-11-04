@@ -1,5 +1,6 @@
 ﻿using CalculadoraDeJuros.Contratos.Dto;
 using Microservices.TaxasDeJuros.Services.TaxasDeJurosChain;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace Microservices.TaxasDeJuros.Services
 
         public decimal GetValor() => _taxaDeJurosChain.Get();
 
-        public Task<TaxaDeJurosDto> GetValorAsync(TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken) =>
-            Task.Run(() => _taxaDeJurosChain.Get(taxaDeJurosDto), cancellationToken);
+        public Task<TaxaDeJurosDto> GetValorAsync(Guid id, CancellationToken cancellationToken) =>
+            Task.Run(() => _taxaDeJurosChain.Get(id), cancellationToken);
     }
 }

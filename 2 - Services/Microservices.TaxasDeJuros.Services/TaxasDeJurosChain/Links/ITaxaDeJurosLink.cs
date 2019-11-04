@@ -1,12 +1,13 @@
 ﻿using CalculadoraDeJuros.Contratos.Dto;
+using System;
 
 namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links
 {
-    internal interface ITaxaDeJurosLink
+    public interface ITaxaDeJurosLink
     {
         ITaxaDeJurosLink ProximoLink { get; set; }
 
-        TaxaDeJurosDto GetValor(TaxaDeJurosDto taxaDeJurosDto);
+        TaxaDeJurosDto GetValor(Guid id);
 
         decimal GetValor();
 

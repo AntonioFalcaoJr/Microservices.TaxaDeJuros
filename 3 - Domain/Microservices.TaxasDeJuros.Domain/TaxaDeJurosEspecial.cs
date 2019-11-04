@@ -7,5 +7,9 @@ namespace Microservices.TaxasDeJuros.Domain
         public TaxaDeJurosEspecial(decimal valor) : base(valor)
         {
         }
+
+        public TaxaDeJurosEspecial()
+        {
+        }
     }
 }

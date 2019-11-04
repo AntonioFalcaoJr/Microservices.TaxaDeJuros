@@ -6,11 +6,13 @@
 
   <ItemGroup>
     <PackageReference Include="CalculadoraDeJuros.Contratos" Version="1.0.3" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0-preview1.19506.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0-preview2.19525.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0-preview2.19525.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\3 - Domain\Microservices.TaxasDeJuros.Domain\Microservices.TaxasDeJuros.Domain.csproj" />
+    <ProjectReference Include="..\..\4 - Data\Microservices.TaxasDeJuros.Data\Microservices.TaxasDeJuros.Data.csproj" />
   </ItemGroup>
   
 </Project>

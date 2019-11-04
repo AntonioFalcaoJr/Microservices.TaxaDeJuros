@@ -1,11 +1,11 @@
 ﻿using CalculadoraDeJuros.Contratos.Domain;
+using Microservices.TaxasDeJuros.CrossCutting;
 using Microservices.TaxasDeJuros.Domain.Builders.TaxasDeJurosEspecial;
 
 namespace Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial
 {
     public class TaxaDeJurosEspecialFactory : ITaxaDeJurosEspecialFactory<ITaxaDeJurosEspecial>
     {
-        private const decimal Valor = 0.005M;
         private readonly ITaxaDeJurosEspecialBuilder<ITaxaDeJurosEspecial> _taxaDeJurosEspecialBuilder;
 
         public TaxaDeJurosEspecialFactory(ITaxaDeJurosEspecialBuilder<ITaxaDeJurosEspecial> taxaDeJurosEspecialBuilder)
@@ -16,7 +16,7 @@ namespace Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial
         public ITaxaDeJurosEspecial Create()
         {
             return _taxaDeJurosEspecialBuilder
-                .WithValor(Valor)
+                .WithValor(TaxaDeJurosConstants.ValorDaTaxaDeJurosEspecial)
                 .Build();
         }
     }

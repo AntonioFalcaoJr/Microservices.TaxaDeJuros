@@ -1,8 +1,10 @@
 ﻿using CalculadoraDeJuros.Contratos.Domain;
 using CalculadoraDeJuros.Contratos.Dto;
+using Microservices.TaxasDeJuros.Data;
 using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosEspecial;
 using Microservices.TaxasDeJuros.Domain.Factories.TaxasDeJurosPadrao;
 using Microservices.TaxasDeJuros.Services.TaxasDeJurosChain.Links;
+using System;
 
 namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
 {
@@ -12,15 +14,15 @@ namespace Microservices.TaxasDeJuros.Services.TaxasDeJurosChain
         private readonly TaxaDeJurosPadraoLink _taxaDeJurosPadraoLink;
 
         public TaxaDeJurosChain(ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao> taxaDeJurosPadraoFactory,
-            ITaxaDeJurosEspecialFactory<ITaxaDeJurosEspecial> taxaDeJurosEspecialFactory)
+            ITaxaDeJurosEspecialFactory<ITaxaDeJurosEspecial> taxaDeJurosEspecialFactory, ITaxasDeJurosContext taxasDeJurosContext)
         {
-            _taxaDeJurosEspecialLink = new TaxaDeJurosEspecialLink(taxaDeJurosEspecialFactory);
-            _taxaDeJurosPadraoLink = new TaxaDeJurosPadraoLink(taxaDeJurosPadraoFactory);
+            _taxaDeJurosEspecialLink = new TaxaDeJurosEspecialLink(taxaDeJurosEspecialFactory, taxasDeJurosContext);
+            _taxaDeJurosPadraoLink = new TaxaDeJurosPadraoLink(taxaDeJurosPadraoFactory, taxasDeJurosContext);
 
             _taxaDeJurosEspecialLink.SetProximoLink(_taxaDeJurosPadraoLink);
         }
 
-        public TaxaDeJurosDto Get(TaxaDeJurosDto taxaDeJurosDto) => _taxaDeJurosEspecialLink.GetValor(taxaDeJurosDto);
+        public TaxaDeJurosDto Get(Guid id) => _taxaDeJurosEspecialLink.GetValor(id);
 
         public decimal Get() => _taxaDeJurosPadraoLink.GetValor();
     }

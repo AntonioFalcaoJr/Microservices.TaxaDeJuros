@@ -1,10 +1,15 @@
 ﻿using CalculadoraDeJuros.Contratos.Domain;
+using Microservices.TaxasDeJuros.Domain.Base;
 
 namespace Microservices.TaxasDeJuros.Domain
 {
-    public abstract class TaxaDeJuros : ITaxaDeJuros
+    public class TaxaDeJuros : BaseEntity, ITaxaDeJuros
     {
-        protected TaxaDeJuros(decimal valor)
+        public TaxaDeJuros()
+        {
+        }
+
+        public TaxaDeJuros(decimal valor)
         {
             SetValor(valor);
         }

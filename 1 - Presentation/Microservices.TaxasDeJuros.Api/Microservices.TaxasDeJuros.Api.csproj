@@ -14,6 +14,8 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="4.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0-preview2.19525.5" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.0-preview2.19525.4" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.9.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc4" />
 
@@ -21,6 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\2 - Services\Microservices.TaxasDeJuros.Services\Microservices.TaxasDeJuros.Services.csproj" />
+    <ProjectReference Include="..\..\4 - Data\Microservices.TaxasDeJuros.Data\Microservices.TaxasDeJuros.Data.csproj" />
+    <ProjectReference Include="..\..\4 - Infra\4.2 - CrossCutting\Microservices.TaxasDeJuros.CrossCutting\Microservices.TaxasDeJuros.CrossCutting.csproj" />
   </ItemGroup>
 
 </Project>

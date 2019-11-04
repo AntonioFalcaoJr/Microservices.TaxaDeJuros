@@ -17,9 +17,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Api.Tests", "1 - Presentation\Microservices.TaxasDeJuros.Api.Tests\Microservices.TaxasDeJuros.Api.Tests.csproj", "{A4044C9E-DB99-4B9B-895D-2D746281AC44}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxasDeJuros.Services.Tests", "2 - Services\Microservices.TaxasDeJuros.Services.Tests\Microservices.TaxasDeJuros.Services.Tests.csproj", "{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Services.Tests", "2 - Services\Microservices.TaxasDeJuros.Services.Tests\Microservices.TaxasDeJuros.Services.Tests.csproj", "{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxasDeJuros.Domain.Tests", "3 - Domain\Microservices.TaxasDeJuros.Domain.Tests\Microservices.TaxasDeJuros.Domain.Tests.csproj", "{A128FD65-2ACC-467A-9C1D-CBD132DB9450}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Domain.Tests", "3 - Domain\Microservices.TaxasDeJuros.Domain.Tests\Microservices.TaxasDeJuros.Domain.Tests.csproj", "{A128FD65-2ACC-467A-9C1D-CBD132DB9450}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{01DAF8E6-03AE-44BB-B552-75F7C9C9FD09}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Data", "4 - Data\Microservices.TaxasDeJuros.Data\Microservices.TaxasDeJuros.Data.csproj", "{21E0B801-5B08-4620-8F86-9E8A8D14D84E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{5993E265-4952-42F6-96F4-A9C764821985}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{FE0500EE-E215-4282-98B8-FD58361AF410}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxasDeJuros.CrossCutting", "4 - Infra\4.2 - CrossCutting\Microservices.TaxasDeJuros.CrossCutting\Microservices.TaxasDeJuros.CrossCutting.csproj", "{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +61,14 @@ Global
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21E0B801-5B08-4620-8F86-9E8A8D14D84E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21E0B801-5B08-4620-8F86-9E8A8D14D84E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21E0B801-5B08-4620-8F86-9E8A8D14D84E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21E0B801-5B08-4620-8F86-9E8A8D14D84E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +80,10 @@ Global
 		{A4044C9E-DB99-4B9B-895D-2D746281AC44} = {01058935-7ECA-41A0-B2A7-65F24B1069BD}
 		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0} = {6D65FC3A-25B1-4EF7-9F38-BB2C3E9E1D17}
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450} = {5D8C3FBC-BF26-46F6-8FF0-98A30A4F69A3}
+		{01DAF8E6-03AE-44BB-B552-75F7C9C9FD09} = {5993E265-4952-42F6-96F4-A9C764821985}
+		{21E0B801-5B08-4620-8F86-9E8A8D14D84E} = {01DAF8E6-03AE-44BB-B552-75F7C9C9FD09}
+		{FE0500EE-E215-4282-98B8-FD58361AF410} = {5993E265-4952-42F6-96F4-A9C764821985}
+		{9020A0D2-2C58-4163-B6FA-63941ADE5A3B} = {FE0500EE-E215-4282-98B8-FD58361AF410}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0776A9E5-4702-428A-B732-3E0B31154253}

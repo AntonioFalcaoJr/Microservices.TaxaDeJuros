@@ -1,5 +1,4 @@
-﻿using CalculadoraDeJuros.Contratos.Dto;
-using Microservices.TaxasDeJuros.Api.Controllers.v2.Base;
+﻿using Microservices.TaxasDeJuros.Api.Controllers.v2.Base;
 using Microservices.TaxasDeJuros.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,14 +19,14 @@ namespace Microservices.TaxasDeJuros.Api.Controllers.v2
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAsync([FromQuery] TaxaDeJurosDto taxaDeJurosDto, CancellationToken cancellationToken)
+        public async Task<IActionResult> GetAsync([FromQuery] Guid id, CancellationToken cancellationToken)
         {
-            if (taxaDeJurosDto is null)
+            if (id == Guid.Empty)
                 return BadRequest("Não foi possível identificar a Taxa de Juros desejada.");
 
             try
             {
-                var result = await _taxaDeJurosServices.GetValorAsync(taxaDeJurosDto, cancellationToken);
+                var result = await _taxaDeJurosServices.GetValorAsync(id, cancellationToken);
 
                 if (result.IsValid())
                     return Ok(result.Valor);
