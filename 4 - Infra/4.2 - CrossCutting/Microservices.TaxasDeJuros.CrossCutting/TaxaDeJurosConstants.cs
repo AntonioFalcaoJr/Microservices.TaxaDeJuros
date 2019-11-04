@@ -2,7 +2,7 @@
 
 namespace Microservices.TaxasDeJuros.CrossCutting
 {
-    public class TaxaDeJurosConstants
+    public static class TaxaDeJurosConstants
     {
         public const decimal ValorDaTaxaDeJurosEspecial = 0.005M;
         public const decimal ValorDaTaxaDeJurosPadrao = 0.01M;

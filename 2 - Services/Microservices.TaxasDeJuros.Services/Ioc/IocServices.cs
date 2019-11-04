@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservices.TaxasDeJuros.Services.Ioc
 {
-    public class IocServices
+    public static class IocServices
     {
         public static void Register(IServiceCollection services)
         {

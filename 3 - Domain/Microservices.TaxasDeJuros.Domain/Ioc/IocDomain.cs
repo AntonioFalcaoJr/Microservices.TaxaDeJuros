@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Microservices.TaxasDeJuros.Domain.Ioc
 {
-    public class IocDomain
+    public static class IocDomain
     {
         public static void Register(IServiceCollection services)
         {
