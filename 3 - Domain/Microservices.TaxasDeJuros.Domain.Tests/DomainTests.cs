@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Microservices.TaxasDeJuros.Domain.Tests
 {
-    public class UnitTest1
+    public class DomainTests
     {
         private const decimal Valor = 0.01M;
         private readonly ITaxaDeJurosPadrao _taxaDeJurosPadrao;
@@ -16,7 +16,7 @@ namespace Microservices.TaxasDeJuros.Domain.Tests
         private readonly Mock<ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao>> _taxaDeJurosPadraoFactoryMock;
         private readonly Mock<ITaxaDeJurosPadrao> _taxaDeJurosPadraoMock;
 
-        public UnitTest1()
+        public DomainTests()
         {
             _taxaDeJurosPadraoBuilderMock = new Mock<ITaxaDeJurosPadraoBuilder<ITaxaDeJurosPadrao>>();
             _taxaDeJurosPadraoFactoryMock = new Mock<ITaxaDeJurosPadraoFactory<ITaxaDeJurosPadrao>>();
@@ -35,8 +35,6 @@ namespace Microservices.TaxasDeJuros.Domain.Tests
             _taxaDeJurosPadraoBuilderMock.Setup(x => x.Build()).Returns(_taxaDeJurosPadrao).Verifiable();
 
             var result = _taxaDeJurosPadraoFactory.Create();
-
-            // _taxaDeJurosPadraoFactoryMock.Verify();
 
             Assert.NotNull(result);
             Assert.Equal(Valor, result.Get());

@@ -15,10 +15,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Api", "1 - Presentation\Microservices.TaxasDeJuros.Api\Microservices.TaxasDeJuros.Api.csproj", "{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Api.Tests", "1 - Presentation\Microservices.TaxasDeJuros.Api.Tests\Microservices.TaxasDeJuros.Api.Tests.csproj", "{A4044C9E-DB99-4B9B-895D-2D746281AC44}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Services.Tests", "2 - Services\Microservices.TaxasDeJuros.Services.Tests\Microservices.TaxasDeJuros.Services.Tests.csproj", "{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.Domain.Tests", "3 - Domain\Microservices.TaxasDeJuros.Domain.Tests\Microservices.TaxasDeJuros.Domain.Tests.csproj", "{A128FD65-2ACC-467A-9C1D-CBD132DB9450}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 - Data", "4.1 - Data", "{01DAF8E6-03AE-44BB-B552-75F7C9C9FD09}"
@@ -29,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 - Infra", "4 - Infra", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 - CrossCutting", "4.2 - CrossCutting", "{FE0500EE-E215-4282-98B8-FD58361AF410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microservices.TaxasDeJuros.CrossCutting", "4 - Infra\4.2 - CrossCutting\Microservices.TaxasDeJuros.CrossCutting\Microservices.TaxasDeJuros.CrossCutting.csproj", "{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microservices.TaxasDeJuros.CrossCutting", "4 - Infra\4.2 - CrossCutting\Microservices.TaxasDeJuros.CrossCutting\Microservices.TaxasDeJuros.CrossCutting.csproj", "{9020A0D2-2C58-4163-B6FA-63941ADE5A3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +45,6 @@ Global
 		{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A4044C9E-DB99-4B9B-895D-2D746281AC44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A4044C9E-DB99-4B9B-895D-2D746281AC44}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A4044C9E-DB99-4B9B-895D-2D746281AC44}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A4044C9E-DB99-4B9B-895D-2D746281AC44}.Release|Any CPU.Build.0 = Release|Any CPU
-		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,8 +65,6 @@ Global
 		{E4C79558-7D99-4F8A-A39C-FC4E22D6E916} = {5D8C3FBC-BF26-46F6-8FF0-98A30A4F69A3}
 		{04C6E9EC-C649-48ED-866E-F51F54893E87} = {6D65FC3A-25B1-4EF7-9F38-BB2C3E9E1D17}
 		{5DA0BDE3-CFD3-46B9-AD21-33F4A340F4CD} = {01058935-7ECA-41A0-B2A7-65F24B1069BD}
-		{A4044C9E-DB99-4B9B-895D-2D746281AC44} = {01058935-7ECA-41A0-B2A7-65F24B1069BD}
-		{834FC998-D3D9-4DD3-9AD9-9D9EB7ADB0D0} = {6D65FC3A-25B1-4EF7-9F38-BB2C3E9E1D17}
 		{A128FD65-2ACC-467A-9C1D-CBD132DB9450} = {5D8C3FBC-BF26-46F6-8FF0-98A30A4F69A3}
 		{01DAF8E6-03AE-44BB-B552-75F7C9C9FD09} = {5993E265-4952-42F6-96F4-A9C764821985}
 		{21E0B801-5B08-4620-8F86-9E8A8D14D84E} = {01DAF8E6-03AE-44BB-B552-75F7C9C9FD09}
